@@ -1,0 +1,36 @@
+//Design Code
+module evenodd(output reg out,input [4:0]in);
+  always@*
+    begin
+      if(in[0]==1'b0)
+        wire even,odd;
+        begin
+         assign out=even;
+        end
+      else
+        begin
+          assign out=odd;
+        end
+    end
+endmodule
+
+
+//Test Bench Code
+module tb();
+  wire out;
+  reg [4:0]in;
+  evenodd DUT(out,in);
+  initial
+    begin
+      integer i;
+      for(i=0;i<32;i=i+1)
+        begin
+          in=i;
+          #10;
+        end
+    end
+  initial
+    begin
+      $monitor("in=%d,out=%d",in,out);
+    end
+endmodule
