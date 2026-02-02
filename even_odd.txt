@@ -3,7 +3,7 @@ module evenodd(output reg out,input [4:0]in);
   always@*
     begin
       if(in[0]==1'b0)
-        wire even,odd;
+        wire even = 1 ,odd = 1;
         begin
          assign out=even;
         end
